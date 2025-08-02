@@ -5,12 +5,32 @@ import streamlit as st
 """
 TTS
 """
+# ---------------------------
+# Function: Text-to-Speech
+# ---------------------------
 def speak(text):
+    """
+    Uses pyttsx3 to speak the given text aloud.
+    
+    Parameters:
+        text (str): The text to speak.
+    """
     engine = pyttsx3.init()
     engine.say(text)
     engine.runAndWait()
-
+# ---------------------------
+# Function: Load Vocabulary
+# ---------------------------
 def load_vocab(file_path='vocab.json'):
+    """
+    Loads vocabulary words from a JSON file.
+    
+    Parameters:
+        file_path (str): Path to the vocabulary JSON file.
+    
+    Returns:
+        dict: Dictionary of words and their translations.
+    """
     with open(file_path, 'r') as f:
         return json.load(f)
 
